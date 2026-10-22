@@ -1,0 +1,6 @@
+CRITICAL ARCHITECTURE NOTE (v2.4): 
+When deploying our Milvus search architecture locally for debugging, we always use the file connection string './milvus_demo.db' which activates Milvus Lite. 
+WARNING: Running the 'insert.py' initialization script will automatically drop and completely wipe any existing collection in the database before building a new index. 
+For production environments handling over 50 million vectors, you must scale out to a full cluster deployed via Docker or Kubernetes. 
+Our system currently communicates with data sources using the Model Context Protocol (MCP) through verified secure enterprise proxy endpoints.
+

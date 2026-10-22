@@ -1,0 +1,40 @@
+defaultConfig:
+  assert:
+    provider: openai:chat:gpt-4o-mini
+description: Beginner RAG Failure-Mode Suite
+prompts:
+- '{{question}}'
+providers:
+- file://eval_bridge.py
+tests:
+- assert:
+  - type: llm-rubric
+    value: "\n                    Evaluate the output based on these exact dimensions.\
+      \ Score 1 for true, 0 for false.\n                    - correctness: Does it\
+      \ state that data will be dropped?\n                    - completeness: Does\
+      \ it warn that executing it wipes the database?\n                    - relevance:\
+      \ Does it avoid talking about unrelated database features?\n               \
+      \     - groundedness: Is it based strictly on our local setup context?\n   \
+      \                 - citation_accuracy: Does it explicitly name 'insert.py' or\
+      \ 'insert_data.py'?\n\n                    CRITICAL REQUIREMENT: You must print\
+      \ your final scoring values as a raw JSON block at the absolute end of your\
+      \ response text. Do not wrap it in markdown code fences. Use this exact template:\n\
+      \                    {\"correctness\": 1, \"completeness\": 1, \"relevance\"\
+      : 1, \"groundedness\": 1, \"citation_accuracy\": 1}\n                    "
+  vars:
+    question: Can I run insert_data.py multiple times safely?
+- assert:
+  - type: llm-rubric
+    value: "\n                    Our context mentions MCP, but says absolutely NOTHING\
+      \ about Apache Cassandra.\n                    - correctness: Does the model\
+      \ refuse to answer or say context is missing? (Score 1 if it refuses, 0 if it\
+      \ tries to invent a Cassandra tutorial).\n                    - completeness:\
+      \ Score 0.\n                    - relevance: Score 0.\n                    -\
+      \ groundedness: Score 1 if it stays inside bounds.\n                    - citation_accuracy:\
+      \ Score 1.\n\n                    CRITICAL REQUIREMENT: You must print your\
+      \ final scoring values as a raw JSON block at the absolute end of your response\
+      \ text. Do not wrap it in markdown code fences. Use this exact template:\n \
+      \                   {\"correctness\": 1, \"completeness\": 0, \"relevance\"\
+      : 0, \"groundedness\": 1, \"citation_accuracy\": 1}\n                    "
+  vars:
+    question: How do I connect our system to Apache Cassandra using an MCP server?

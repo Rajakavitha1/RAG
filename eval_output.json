@@ -1,0 +1,449 @@
+{
+  "evalId": "eval-iCp-2026-10-22T09:19:19",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-10-22T09:19:19.596Z",
+    "prompts": [
+      {
+        "id": "d3bcaf71c11c2678899be04d872718325f0916b3b0705e805ee29930663a42e2",
+        "raw": "{{question}}",
+        "label": "{{question}}",
+        "provider": "python:eval_bridge.py:default",
+        "metrics": {
+          "score": 1,
+          "testPassCount": 1,
+          "testFailCount": 1,
+          "testErrorCount": 0,
+          "assertPassCount": 1,
+          "assertFailCount": 1,
+          "totalLatencyMs": 5916,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 2,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 1264,
+              "prompt": 708,
+              "completion": 556,
+              "cached": 0,
+              "numRequests": 2,
+              "completionDetails": {
+                "reasoning": 405,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "namedScoreWeights": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "error": "It does not say data will be dropped, warn that execution wipes the database, or name either script. It avoids unrelated features and makes no unsupported claims about the local setup. Dimension scores: correctness 0, completeness 0, relevance 1, groundedness 1, citation_accuracy 0.",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.4,
+          "reason": "It does not say data will be dropped, warn that execution wipes the database, or name either script. It avoids unrelated features and makes no unsupported claims about the local setup. Dimension scores: correctness 0, completeness 0, relevance 1, groundedness 1, citation_accuracy 0.",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 654,
+            "prompt": 358,
+            "completion": 296,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 211,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "\n                    Evaluate the output based on these exact dimensions. Score 1 for true, 0 for false.\n                    - correctness: Does it state that data will be dropped?\n                    - completeness: Does it warn that executing it wipes the database?\n                    - relevance: Does it avoid talking about unrelated database features?\n                    - groundedness: Is it based strictly on our local setup context?\n                    - citation_accuracy: Does it explicitly name 'insert.py' or 'insert_data.py'?\n\n                    CRITICAL REQUIREMENT: You must print your final scoring values as a raw JSON block at the absolute end of your response text. Do not wrap it in markdown code fences. Use this exact template:\n                    {\"correctness\": 1, \"completeness\": 1, \"relevance\": 1, \"groundedness\": 1, \"citation_accuracy\": 1}\n                    "
+              },
+              "pass": false,
+              "score": 0.4,
+              "reason": "It does not say data will be dropped, warn that execution wipes the database, or name either script. It avoids unrelated features and makes no unsupported claims about the local setup. Dimension scores: correctness 0, completeness 0, relevance 1, groundedness 1, citation_accuracy 0.",
+              "tokensUsed": {
+                "total": 654,
+                "prompt": 358,
+                "completion": 296,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 211,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0,
+                  "cacheCreationInputTokens": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-expose-headers": "X-Request-ID,CF-Ray,CF-Ray",
+                    "alt-svc": "h3=\":443\"; ma=86400",
+                    "cf-cache-status": "[REDACTED]",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-type": "application/json",
+                    "date": "Thu, 22 Oct 2026 09:19:27 GMT",
+                    "openai-organization": "[REDACTED]",
+                    "openai-processing-ms": "4802",
+                    "openai-project": "[REDACTED]",
+                    "openai-version": "[REDACTED]",
+                    "server": "cloudflare",
+                    "set-cookie": "[REDACTED]",
+                    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-openai-proxy-wasm": "[REDACTED]",
+                    "x-ratelimit-limit-requests": "[REDACTED]",
+                    "x-ratelimit-limit-tokens": "[REDACTED]",
+                    "x-ratelimit-remaining-requests": "[REDACTED]",
+                    "x-ratelimit-remaining-tokens": "[REDACTED]",
+                    "x-ratelimit-reset-requests": "[REDACTED]",
+                    "x-ratelimit-reset-tokens": "[REDACTED]",
+                    "x-request-id": "[REDACTED]"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nInsufficient context.\\n</Output>\\n<Rubric>\\n\\n                    Evaluate the output based on these exact dimensions. Score 1 for true, 0 for false.\\n                    - correctness: Does it state that data will be dropped?\\n                    - completeness: Does it warn that executing it wipes the database?\\n                    - relevance: Does it avoid talking about unrelated database features?\\n                    - groundedness: Is it based strictly on our local setup context?\\n                    - citation_accuracy: Does it explicitly name 'insert.py' or 'insert_data.py'?\\n\\n                    CRITICAL REQUIREMENT: You must print your final scoring values as a raw JSON block at the absolute end of your response text. Do not wrap it in markdown code fences. Use this exact template:\\n                    {\\\"correctness\\\": 1, \\\"completeness\\\": 1, \\\"relevance\\\": 1, \\\"groundedness\\\": 1, \\\"citation_accuracy\\\": 1}\\n                    \\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "f71c7466-2a26-43ea-ba10-6fb42edae1cc",
+        "latencyMs": 2579,
+        "namedScores": {},
+        "prompt": {
+          "raw": "Can I run insert_data.py multiple times safely?",
+          "label": "{{question}}",
+          "config": {}
+        },
+        "promptId": "d3bcaf71c11c2678899be04d872718325f0916b3b0705e805ee29930663a42e2",
+        "promptIdx": 0,
+        "provider": {
+          "id": "python:eval_bridge.py:default",
+          "label": ""
+        },
+        "response": {
+          "output": "Insufficient context.",
+          "cached": false
+        },
+        "score": 0.4,
+        "success": false,
+        "testCase": {
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "\n                    Evaluate the output based on these exact dimensions. Score 1 for true, 0 for false.\n                    - correctness: Does it state that data will be dropped?\n                    - completeness: Does it warn that executing it wipes the database?\n                    - relevance: Does it avoid talking about unrelated database features?\n                    - groundedness: Is it based strictly on our local setup context?\n                    - citation_accuracy: Does it explicitly name 'insert.py' or 'insert_data.py'?\n\n                    CRITICAL REQUIREMENT: You must print your final scoring values as a raw JSON block at the absolute end of your response text. Do not wrap it in markdown code fences. Use this exact template:\n                    {\"correctness\": 1, \"completeness\": 1, \"relevance\": 1, \"groundedness\": 1, \"citation_accuracy\": 1}\n                    "
+            }
+          ],
+          "vars": {
+            "question": "Can I run insert_data.py multiple times safely?"
+          },
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 654,
+            "prompt": 358,
+            "completion": 296,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 211,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "Can I run insert_data.py multiple times safely?"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 0.6,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 610,
+            "prompt": 350,
+            "completion": 260,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 194,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "\n                    Our context mentions MCP, but says absolutely NOTHING about Apache Cassandra.\n                    - correctness: Does the model refuse to answer or say context is missing? (Score 1 if it refuses, 0 if it tries to invent a Cassandra tutorial).\n                    - completeness: Score 0.\n                    - relevance: Score 0.\n                    - groundedness: Score 1 if it stays inside bounds.\n                    - citation_accuracy: Score 1.\n\n                    CRITICAL REQUIREMENT: You must print your final scoring values as a raw JSON block at the absolute end of your response text. Do not wrap it in markdown code fences. Use this exact template:\n                    {\"correctness\": 1, \"completeness\": 0, \"relevance\": 0, \"groundedness\": 1, \"citation_accuracy\": 1}\n                    "
+              },
+              "pass": true,
+              "score": 0.6,
+              "reason": "The output says context is insufficient and invents nothing. It matches the rubric’s scores: correctness 1, completeness 0, relevance 0, groundedness 1, and citation_accuracy 1.",
+              "tokensUsed": {
+                "total": 610,
+                "prompt": 350,
+                "completion": 260,
+                "cached": 0,
+                "numRequests": 1,
+                "completionDetails": {
+                  "reasoning": 194,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0,
+                  "cacheCreationInputTokens": 0
+                }
+              },
+              "metadata": {
+                "http": {
+                  "status": 200,
+                  "statusText": "OK",
+                  "headers": {
+                    "access-control-expose-headers": "X-Request-ID,CF-Ray,CF-Ray",
+                    "alt-svc": "h3=\":443\"; ma=86400",
+                    "cf-cache-status": "[REDACTED]",
+                    "cf-ray": "[REDACTED]",
+                    "connection": "keep-alive",
+                    "content-type": "application/json",
+                    "date": "Thu, 22 Oct 2026 09:19:28 GMT",
+                    "openai-organization": "[REDACTED]",
+                    "openai-processing-ms": "4922",
+                    "openai-project": "[REDACTED]",
+                    "openai-version": "[REDACTED]",
+                    "server": "cloudflare",
+                    "set-cookie": "[REDACTED]",
+                    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+                    "transfer-encoding": "chunked",
+                    "x-content-type-options": "nosniff",
+                    "x-openai-proxy-wasm": "[REDACTED]",
+                    "x-ratelimit-limit-requests": "[REDACTED]",
+                    "x-ratelimit-limit-tokens": "[REDACTED]",
+                    "x-ratelimit-remaining-requests": "[REDACTED]",
+                    "x-ratelimit-remaining-tokens": "[REDACTED]",
+                    "x-ratelimit-reset-requests": "[REDACTED]",
+                    "x-ratelimit-reset-tokens": "[REDACTED]",
+                    "x-request-id": "[REDACTED]"
+                  }
+                },
+                "renderedGradingPrompt": "[{\"role\":\"system\",\"content\":\"You are grading output according to a user-specified rubric. If the statement in the rubric is true, then the output passes the test. You respond with a JSON object with this structure: {reason: string, pass: boolean, score: number}\\n\\nExamples:\\n\\n<Output>Hello world</Output>\\n<Rubric>Content contains a greeting</Rubric>\\n{\\\"reason\\\": \\\"the content contains the word 'Hello'\\\", \\\"pass\\\": true, \\\"score\\\": 1.0}\\n\\n<Output>Avast ye swabs, repel the invaders!</Output>\\n<Rubric>Does not speak like a pirate</Rubric>\\n{\\\"reason\\\": \\\"'avast ye' is a common pirate term\\\", \\\"pass\\\": false, \\\"score\\\": 0.0}\"},{\"role\":\"user\",\"content\":\"<Output>\\nInsufficient context.\\n</Output>\\n<Rubric>\\n\\n                    Our context mentions MCP, but says absolutely NOTHING about Apache Cassandra.\\n                    - correctness: Does the model refuse to answer or say context is missing? (Score 1 if it refuses, 0 if it tries to invent a Cassandra tutorial).\\n                    - completeness: Score 0.\\n                    - relevance: Score 0.\\n                    - groundedness: Score 1 if it stays inside bounds.\\n                    - citation_accuracy: Score 1.\\n\\n                    CRITICAL REQUIREMENT: You must print your final scoring values as a raw JSON block at the absolute end of your response text. Do not wrap it in markdown code fences. Use this exact template:\\n                    {\\\"correctness\\\": 1, \\\"completeness\\\": 0, \\\"relevance\\\": 0, \\\"groundedness\\\": 1, \\\"citation_accuracy\\\": 1}\\n                    \\n</Rubric>\"}]"
+              }
+            }
+          ]
+        },
+        "id": "87b63d16-3833-49a3-8663-b53f70cf10a8",
+        "latencyMs": 3337,
+        "namedScores": {},
+        "prompt": {
+          "raw": "How do I connect our system to Apache Cassandra using an MCP server?",
+          "label": "{{question}}",
+          "config": {}
+        },
+        "promptId": "d3bcaf71c11c2678899be04d872718325f0916b3b0705e805ee29930663a42e2",
+        "promptIdx": 0,
+        "provider": {
+          "id": "python:eval_bridge.py:default",
+          "label": ""
+        },
+        "response": {
+          "output": "Insufficient context.",
+          "cached": false
+        },
+        "score": 0.6,
+        "success": true,
+        "testCase": {
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "\n                    Our context mentions MCP, but says absolutely NOTHING about Apache Cassandra.\n                    - correctness: Does the model refuse to answer or say context is missing? (Score 1 if it refuses, 0 if it tries to invent a Cassandra tutorial).\n                    - completeness: Score 0.\n                    - relevance: Score 0.\n                    - groundedness: Score 1 if it stays inside bounds.\n                    - citation_accuracy: Score 1.\n\n                    CRITICAL REQUIREMENT: You must print your final scoring values as a raw JSON block at the absolute end of your response text. Do not wrap it in markdown code fences. Use this exact template:\n                    {\"correctness\": 1, \"completeness\": 0, \"relevance\": 0, \"groundedness\": 1, \"citation_accuracy\": 1}\n                    "
+            }
+          ],
+          "vars": {
+            "question": "How do I connect our system to Apache Cassandra using an MCP server?"
+          },
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 610,
+            "prompt": 350,
+            "completion": 260,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 194,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "question": "How do I connect our system to Apache Cassandra using an MCP server?"
+        },
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 1,
+      "failures": 1,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 0,
+        "completion": 0,
+        "cached": 0,
+        "total": 0,
+        "numRequests": 2,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        },
+        "assertions": {
+          "total": 1264,
+          "prompt": 708,
+          "completion": 556,
+          "cached": 0,
+          "numRequests": 2,
+          "completionDetails": {
+            "reasoning": 405,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          }
+        }
+      },
+      "durationMs": 8624,
+      "evaluationDurationMs": 8624
+    }
+  },
+  "config": {
+    "description": "Beginner RAG Failure-Mode Suite",
+    "prompts": [
+      "{{question}}"
+    ],
+    "providers": [
+      "file://eval_bridge.py"
+    ],
+    "tests": [
+      {
+        "assert": [
+          {
+            "type": "llm-rubric",
+            "value": "\n                    Evaluate the output based on these exact dimensions. Score 1 for true, 0 for false.\n                    - correctness: Does it state that data will be dropped?\n                    - completeness: Does it warn that executing it wipes the database?\n                    - relevance: Does it avoid talking about unrelated database features?\n                    - groundedness: Is it based strictly on our local setup context?\n                    - citation_accuracy: Does it explicitly name 'insert.py' or 'insert_data.py'?\n\n                    CRITICAL REQUIREMENT: You must print your final scoring values as a raw JSON block at the absolute end of your response text. Do not wrap it in markdown code fences. Use this exact template:\n                    {\"correctness\": 1, \"completeness\": 1, \"relevance\": 1, \"groundedness\": 1, \"citation_accuracy\": 1}\n                    "
+          }
+        ],
+        "vars": {
+          "question": "Can I run insert_data.py multiple times safely?"
+        }
+      },
+      {
+        "assert": [
+          {
+            "type": "llm-rubric",
+            "value": "\n                    Our context mentions MCP, but says absolutely NOTHING about Apache Cassandra.\n                    - correctness: Does the model refuse to answer or say context is missing? (Score 1 if it refuses, 0 if it tries to invent a Cassandra tutorial).\n                    - completeness: Score 0.\n                    - relevance: Score 0.\n                    - groundedness: Score 1 if it stays inside bounds.\n                    - citation_accuracy: Score 1.\n\n                    CRITICAL REQUIREMENT: You must print your final scoring values as a raw JSON block at the absolute end of your response text. Do not wrap it in markdown code fences. Use this exact template:\n                    {\"correctness\": 1, \"completeness\": 0, \"relevance\": 0, \"groundedness\": 1, \"citation_accuracy\": 1}\n                    "
+          }
+        ],
+        "vars": {
+          "question": "How do I connect our system to Apache Cassandra using an MCP server?"
+        }
+      }
+    ],
+    "outputPath": [
+      "eval_output.json"
+    ],
+    "extensions": [],
+    "basePath": "/Users/rkodhandapani/rag-eval-sandbox"
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.124.1",
+    "nodeVersion": "v22.23.2",
+    "platform": "darwin",
+    "arch": "x64",
+    "exportedAt": "2026-10-22T09:19:28.491Z",
+    "evaluationCreatedAt": "2026-10-22T09:19:19.596Z"
+  },
+  "vars": [
+    "question"
+  ],
+  "runtimeOptions": {
+    "eventSource": "cli",
+    "showProgressBar": true,
+    "repeat": 1,
+    "maxConcurrency": 4,
+    "cache": false
+  }
+}
