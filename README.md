@@ -7,6 +7,8 @@ The sandbox integrates Promptfoo, Milvus Lite, and OpenAI to support retrieval, 
 
 > **Project status:** This README describes the intended workflow and current project structure. Claims about implementation, scoring behavior, and evaluation reliability should be confirmed against the source code and execution results before the project is described as production-ready.
 
+![Matrix](matrix.png)
+
 ## System Architecture
 
 The intended workflow separates the interactive user interface from the programmatic evaluation pipeline. A dedicated bridge coordinates retrieval and model inference, while the evaluation layer assesses generated responses against a defined rubric.
