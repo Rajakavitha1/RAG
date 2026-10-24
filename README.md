@@ -1,4 +1,5 @@
 
+
 # Multi-Dimensional RAG Evaluation Sandbox
 
 A failure-mode-driven evaluation sandbox for benchmarking Retrieval-Augmented Generation (RAG) applications. The project explores how technical documentation can be used as a knowledge source for generating and evaluating model responses across five dimensions: correctness, completeness, relevance, groundedness, and citation accuracy.
@@ -7,7 +8,7 @@ The sandbox integrates Promptfoo, Milvus Lite, and OpenAI to support retrieval, 
 
 > **Project status:** This README describes the intended workflow and current project structure. Claims about implementation, scoring behavior, and evaluation reliability should be confirmed against the source code and execution results before the project is described as production-ready.
 
-![Matrix](matrix.png)
+<img width="1260" height="753" alt="Matrix" src="https://github.com/user-attachments/assets/894e7e16-3fc4-4feb-bedf-38e59679959a" />
 
 ## System Architecture
 
